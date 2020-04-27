@@ -1,5 +1,5 @@
 # 10000 Hours
-There's this theory that says you could become a master if you put 10,000 hours of blood, sweat and tears into that one thing. 
+There's this theory that says you could become a master if you put 10,000 hours of blood, sweat and tears into one thing. 
 Let's put that theory to the test.
 
 # MVP
