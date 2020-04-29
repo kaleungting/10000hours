@@ -8,70 +8,70 @@
       href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
     <div class="main-container">
-      <div class="total-hours"></div>
       <div class="progress-bar">
+        <div class="total-hours"></div>
         <div class="amount-completed"></div>
       </div>
+      <div class="skill-level"></div>
       <div class="splash-page">
         <div class="splash-content">
           <h1>10000 HOURS</h1>
           <div class="goal-container">
             <form>
               <input
-                class="goal-input hide"
+                class="goal-input"
                 type="text"
                 placeholder="What is your goal?"
               />
             </form>
           </div>
         </div>
+        <div class="form-container">
+          <form class="task-form">
+            <div class="left-container">
+              <input class="task-input" type="text" placeholder="Task" />
+              <br />
+              <input
+                class="description-input"
+                type="text"
+                placeholder="Description"
+              />
+            </div>
+            <div class="custom-select" style="width: 200px;">
+              <select class="log-hours">
+                <option value="">Hours </option>
+                <option value="1">One </option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+                <option value="7">Seven</option>
+                <option value="8">Eight</option>
+                <option value="9">Nine</option>
+                <option value="10">Ten</option>
+                <option value="1000">One Thousand</option>
+              </select>
+            </div>
+            <input type="date" class="date" />
+            <button type="submit" class="submit-btn">Log Hours</button>
+          </form>
+        </div>
       </div>
-      <div class="form-container">
-        <form class="task-form">
-          <div class="left-container">
-            <input class="task-input" type="text" placeholder="Task" />
-            <br />
-            <input
-              class="description-input"
-              type="text"
-              placeholder="Description"
-            />
-          </div>
-          <select class="log-hours">
-            <option value="1">One Hour</option>
-            <option value="2">Two Hour</option>
-            <option value="3">Three Hour</option>
-            <option value="4">Four Hour</option>
-            <option value="5">Five Hour</option>
-            <option value="6">Six Hour</option>
-            <option value="7">Seven Hour</option>
-            <option value="8">Eight Hour</option>
-            <option value="9">Nine Hour</option>
-            <option value="10">Ten Hour</option>
-          </select>
-          <input type="date" class="date" />
-          <button type="submit" class="submit-btn">Log Hours</button>
-        </form>
       </div>
-    </div>
     <div class="error-container"></div>
+    <button class="hide-form"">
+      <i class="far fa-plus-square"></i>
+    </button>
     <div class="task-list"></div>
+    <script src="src/scripts/progress.js"></script>
+    <script src="src/scripts/task.js"></script>
     <script src="dist/main.js"></script>
   </body>
 </html>
-
-<!-- <div class="task-container">
-  <div class="task-left-container">
-    <h1 class="task-name"></h1>
-    <p class="task-description"></p>
-  </div>
-  <div class="task-right-container">
-    <p class="task-hours"></p>
-    <button class="task-update-btn"></button>
-  </div>
-</div> -->

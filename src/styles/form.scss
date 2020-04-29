@@ -1,9 +1,11 @@
 .form-container {
-  display: flex;
+  display: none;
+  position: fixed;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
+  bottom: 50px;
 }
 
 .task-form {
@@ -13,11 +15,8 @@
   justify-content: space-around;
   align-items: center;
   background-color: black;
-  opacity: 40%;
-}
-
-.task-form:focus-within {
-  opacity: 70%;
+  min-width: 800px;
+  opacity: 90%;
 }
 
 .left-container {
@@ -25,12 +24,15 @@
 }
 .task-input,
 .description-input {
-  font-size: 16px;
   width: 100%;
   margin: 5px;
   padding: 0.5rem;
   font-size: 1rem;
   border: none;
+}
+
+.task-input {
+  font-size: 24px;
 }
 
 .log-hours {
@@ -40,71 +42,88 @@
 .submit-btn {
   padding: 10px;
   height: 50px;
+  border-radius: 2px;
 }
 
-.container {
-  display: block;
+.log-hours {
+  background-color: inherit;
+  border: none;
+  color: white;
+  font-size: 24px;
+  margin: 10px;
+  text-align-last: center;
+}
+
+.date {
+  background-color: inherit;
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 230px;
+  margin: 20px;
+}
+
+.custom-select {
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.log-hours {
+  background-color: inherit;
+}
+
+.log-hours:focus-within {
+  opacity: 70%;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,
+.log-hours {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
-.container input {
+/*style items (options):*/
+.select-items {
   position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
+  background-color: black;
+  bottom: 100%;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+  right: 0;
+  z-index: 99;
 }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
+/*hide the items when the select box is closed:*/
+.select-hide {
   display: none;
 }
 
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.custom-select:focus-within {
+  opacity: 70%;
 }
 
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.hide-form {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border: none;
+  background-color: transparent;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.hide-form:focus {
+  outline: none;
 }

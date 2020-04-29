@@ -1,14 +1,13 @@
 .task-list {
   width: 50%;
   margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+
   color: black;
 }
 
 .task-content {
   margin: 20px 0;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -17,4 +16,9 @@
 
 .task-hours {
   font-size: 24px;
+  margin: 15px;
+}
+
+.task-right-container {
+  align-self: center;
 }

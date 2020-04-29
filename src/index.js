@@ -10,19 +10,14 @@ const dateInput = document.querySelector(".date");
 const totalHours = document.querySelector(".total-hours");
 const errorDiv = document.querySelector(".error-container");
 const goalInput = document.querySelector(".goal-input");
-const goalSubmit = document.querySelector(".goal-submit");
 const goalContainer = document.querySelector(".goal-container");
-submitBtn.addEventListener("click", addTask);
-localStorage.clear();
+const hideForm = document.querySelector(".hide-form");
+const formContainer = document.querySelector(".form-container");
 
-document
-  .querySelector(".goal-input")
-  .addEventListener("keypress", function (event) {
-    if (event.keyCode == 13) {
-      addGoal(event);
-      event.preventDefault();
-    }
-  });
+hideForm.addEventListener("click", formShow);
+submitBtn.addEventListener("click", addTask);
+
+localStorage.clear();
 
 //localStorage
 let sumHours = localStorage.getItem("sum") ? localStorage.getItem("sum") : 0;
@@ -38,7 +33,11 @@ if (mainGoal) {
 
 localStorage.setItem("sum", sumHours);
 localStorage.setItem("tasks", JSON.stringify(savedTasks));
-totalHours.innerText = sumHours;
+totalHours.innerText = 10000 - sumHours;
+
+if (sumHours > 10000) {
+  localStorage.clear();
+}
 
 if (savedTasks.length > 5) {
   savedTasks = savedTasks.slice(savedTasks.length - 5);
@@ -47,6 +46,8 @@ savedTasks.forEach((task) => {
   makeTask(task);
 });
 
+increaseBar();
+updateCompetency();
 //checks to see if any inputs are empty, and if so, adds class show and renders
 function error(array) {
   array.forEach((input) => {
@@ -121,17 +122,20 @@ function addTask(event) {
     // taskList.appendChild(taskDiv);
     sumHours += parseInt(hourInput.value);
     localStorage.setItem("sum", parseInt(sumHours));
-    totalHours.innerText = sumHours;
+    totalHours.innerText = 10000 - sumHours;
     taskList.insertBefore(taskDiv, taskList.firstChild);
 
     //pushes task into localStorage
     savedTasks.push(convertTasks(inputArray));
     localStorage.setItem("tasks", JSON.stringify(savedTasks));
+    increaseBar();
+    updateCompetency();
+    formContainer.style.display = "none";
     //clears form
-    taskInput.value = "";
-    descriptionInput.value = "";
-    hourInput.value = "";
-    dateInput.value = "";
+    // taskInput.value = "";
+    // descriptionInput.value = "";
+    // hourInput.value = "";
+    // dateInput.value = "";
   }
 }
 
@@ -178,12 +182,36 @@ function makeTask(task) {
   taskList.insertBefore(taskDiv, taskList.firstChild);
 }
 
+document
+  .querySelector(".goal-input")
+  .addEventListener("keypress", function (event) {
+    if (event.keyCode == 13) {
+      addGoal(event);
+      event.preventDefault();
+    }
+  });
+
 function addGoal(event) {
   const goal = document.createElement("div");
-  // debugger;
+  if (goalInput.value !== "") {
+    mainGoal = goalInput.value;
+  }
   goal.innerText = mainGoal;
   localStorage.setItem("goal", mainGoal);
   goal.classList.add("goal");
   goalInput.classList.add("hide");
   goalContainer.appendChild(goal);
+
+  // move();
+}
+
+function formShow() {
+  if (
+    formContainer.style.display === "none" ||
+    formContainer.style.display === ""
+  ) {
+    formContainer.style.display = "flex";
+  } else {
+    formContainer.style.display = "none";
+  }
 }
