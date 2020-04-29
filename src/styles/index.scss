@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(120deg, #4a4a4a, #878787);
+  min-height: 100vh;
+  color: white;
+}
+
+.splash-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-page h1 {
+  font-size: 120px;
+  font-family: "Spartan", sans-serif;
+}
+
+.goal-container {
+  text-align: center;
+}
+
+.goal {
+  font-size: 60px;
+  font-family: "Spartan", sans-serif;
+}
+
+.goal-input {
+  width: 60%;
+  font-size: 60px;
+  background-color: none;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid white;
+  text-align: center;
+}
+
+.goal-input.hide {
+  display: none;
+}
+
+input:focus,
+input:active {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.error-container.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 65%;
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 30px;
+  background-color: white;
+}
+
+.amount-completed {
+  height: 0%;
+  width: 30px;
+  background-color: #4caf50;
+}

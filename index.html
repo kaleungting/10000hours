@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="dist/main.css" rel="stylesheet" />
+    <link href="dist/normalize.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="total-hours"></div>
+      <div class="progress-bar">
+        <div class="amount-completed"></div>
+      </div>
+      <div class="splash-page">
+        <div class="splash-content">
+          <h1>10000 HOURS</h1>
+          <div class="goal-container">
+            <form>
+              <input
+                class="goal-input hide"
+                type="text"
+                placeholder="What is your goal?"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <form class="task-form">
+          <div class="left-container">
+            <input class="task-input" type="text" placeholder="Task" />
+            <br />
+            <input
+              class="description-input"
+              type="text"
+              placeholder="Description"
+            />
+          </div>
+          <select class="log-hours">
+            <option value="1">One Hour</option>
+            <option value="2">Two Hour</option>
+            <option value="3">Three Hour</option>
+            <option value="4">Four Hour</option>
+            <option value="5">Five Hour</option>
+            <option value="6">Six Hour</option>
+            <option value="7">Seven Hour</option>
+            <option value="8">Eight Hour</option>
+            <option value="9">Nine Hour</option>
+            <option value="10">Ten Hour</option>
+          </select>
+          <input type="date" class="date" />
+          <button type="submit" class="submit-btn">Log Hours</button>
+        </form>
+      </div>
+    </div>
+    <div class="error-container"></div>
+    <div class="task-list"></div>
+    <script src="dist/main.js"></script>
+  </body>
+</html>
+
+<!-- <div class="task-container">
+  <div class="task-left-container">
+    <h1 class="task-name"></h1>
+    <p class="task-description"></p>
+  </div>
+  <div class="task-right-container">
+    <p class="task-hours"></p>
+    <button class="task-update-btn"></button>
+  </div>
+</div> -->
