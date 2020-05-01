@@ -353,3 +353,8 @@ template {
 select:focus {
   outline: 0;
 }
+
+button:focus,
+button:active {
+  outline: none;
+}

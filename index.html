@@ -32,46 +32,52 @@
             </form>
           </div>
         </div>
-        <div class="form-container">
-          <form class="task-form">
-            <div class="left-container">
-              <input class="task-input" type="text" placeholder="Task" />
-              <br />
-              <input
-                class="description-input"
-                type="text"
-                placeholder="Description"
-              />
-            </div>
-            <div class="custom-select" style="width: 200px;">
-              <select class="log-hours">
-                <option value="">Hours </option>
-                <option value="1">One </option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
-                <option value="6">Six</option>
-                <option value="7">Seven</option>
-                <option value="8">Eight</option>
-                <option value="9">Nine</option>
-                <option value="10">Ten</option>
-                <option value="1000">One Thousand</option>
-              </select>
-            </div>
-            <input type="date" class="date" />
-            <button type="submit" class="submit-btn">Log Hours</button>
-          </form>
-        </div>
       </div>
-      </div>
-    <div class="error-container"></div>
-    <button class="hide-form"">
-      <i class="far fa-plus-square"></i>
-    </button>
-    <div class="task-list"></div>
-    <script src="src/scripts/progress.js"></script>
-    <script src="src/scripts/task.js"></script>
+      <div class="error-container"></div>
+      <button class="hide-form"">
+        <i class="far fa-plus-square"></i>
+      </button>
+            <div class="form-container">
+              <form class="task-form">
+                <div class="left-container">
+                  <input class="task-input" type="text" placeholder="Task" />
+                  <br />
+                  <input
+                    class="description-input"
+                    type="text"
+                    placeholder="Description"
+                  />
+                </div>
+                <div class="custom-select" style="width: 250px;">
+                  <select class="log-hours">
+                    <option value="">Hours </option>
+                    <option value="1">One </option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                    <option value="9">Nine</option>
+                    <option value="10">Ten</option>
+                    <option value="1000">One Thousand</option>
+                  </select>
+                </div>
+                <input type="date" class="date" />
+                <button type="submit" class="submit-btn">Log Hours</button>
+              </form>
+            </div>
+            <div class="task-list"></div>
+            <div class="loading">
+              <div class="ball"></div>
+              <div class="ball"></div>
+              <div class="ball"></div>
+            </div>
     <script src="dist/main.js"></script>
+    <script type="module" src="src/scripts/infinite_scrolling.js"></script>
+    <script type="module" src="src/scripts/progress.js"></script>
+    <script type="module" src="src/scripts/responsive.js"></script>
+    <script type="module" src="src/scripts/task.js"></script>
   </body>
 </html>
