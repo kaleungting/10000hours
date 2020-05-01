@@ -1,6 +1,8 @@
 import "./styles/index.scss";
 import "./styles/form.scss";
 import "./styles/task.scss";
+import { increaseBar, updateCompetency } from "./scripts/progress";
+
 const taskInput = document.querySelector(".task-input");
 const descriptionInput = document.querySelector(".description-input");
 const submitBtn = document.querySelector(".submit-btn");
@@ -16,8 +18,7 @@ const formContainer = document.querySelector(".form-container");
 
 hideForm.addEventListener("click", formShow);
 submitBtn.addEventListener("click", addTask);
-
-localStorage.clear();
+// localStorage.clear();
 
 //localStorage
 let sumHours = localStorage.getItem("sum") ? localStorage.getItem("sum") : 0;
@@ -39,12 +40,34 @@ if (sumHours > 10000) {
   localStorage.clear();
 }
 
-if (savedTasks.length > 5) {
-  savedTasks = savedTasks.slice(savedTasks.length - 5);
-}
-savedTasks.forEach((task) => {
-  makeTask(task);
-});
+// let initial = 0;
+// let reveal = 3;
+// if (savedTasks.length > 10) {
+//   savedTasks = savedTasks.slice(savedTasks.length - 5);
+// }
+// savedTasks.forEach((task, i) => {
+//   makeTask(task, i);
+// });
+
+// }
+
+// loadSelected(savedTasks, reveal, initial);
+
+// window.addEventListener("scroll", function () {
+//   if (
+//     Math.ceil(window.innerHeight + window.scrollY) ===
+//       document.documentElement.scrollHeight &&
+//     savedTasks.length - reveal >= 0
+//   ) {
+//     initial += 3;
+//     reveal += 3;
+//     setTimeout(loadSelected(savedTasks, reveal, initial), 5000);
+//   } else if (savedTasks.length - reveal - 3 === 0) {
+//     initial += 3 - (savedTasks.length - reveal);
+//     reveal += savedTasks.length - reveal;
+//     loadSelected(savedTasks, reveal, initial);
+//   }
+// });
 
 increaseBar();
 updateCompetency();
@@ -92,9 +115,9 @@ function addTask(event) {
 
   const taskHours = document.createElement("p");
   if (hourInput.value > 1) {
-    taskHours.innerText = `${hourInput.value} hours`;
+    taskHours.innerText = `${hourInput.value}`;
   } else {
-    taskHours.innerText = `${hourInput.value} hour`;
+    taskHours.innerText = `${hourInput.value}`;
   }
   taskHours.classList.add("task-hours");
   //adds to total hours
@@ -111,6 +134,12 @@ function addTask(event) {
   //looks for any unfilled inputs and renders errors
   error(inputArray);
 
+  //create delete
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = '<i class="fas fa-minus-circle"></i>';
+  deleteBtn.classList.add("delete-button");
+  deleteBtn.addEventListener("click", deleteTask);
+
   //adds task onto html
   if (errorDiv.innerText === "") {
     taskDiv.appendChild(leftContainer);
@@ -119,6 +148,7 @@ function addTask(event) {
     taskDiv.appendChild(rightContainer);
     rightContainer.appendChild(taskHours);
     rightContainer.appendChild(taskDate);
+    taskDiv.appendChild(deleteBtn);
     // taskList.appendChild(taskDiv);
     sumHours += parseInt(hourInput.value);
     localStorage.setItem("sum", parseInt(sumHours));
@@ -128,9 +158,18 @@ function addTask(event) {
     //pushes task into localStorage
     savedTasks.push(convertTasks(inputArray));
     localStorage.setItem("tasks", JSON.stringify(savedTasks));
+    taskDiv.id = savedTasks.length;
     increaseBar();
     updateCompetency();
     formContainer.style.display = "none";
+    // window.scrollTo(0, taskList.offsetTop);
+
+    window.scroll({
+      top: taskList.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+    // location.reload();
     //clears form
     // taskInput.value = "";
     // descriptionInput.value = "";
@@ -139,48 +178,55 @@ function addTask(event) {
   }
 }
 
-function makeTask(task) {
-  //create container div
-  const taskDiv = document.createElement("div");
-  taskDiv.classList.add("task-content");
+// function makeTask(task, i) {
+//   //create container div
+//   const taskDiv = document.createElement("div");
+//   taskDiv.classList.add("task-content");
 
-  //create left container div
-  const leftContainer = document.createElement("div");
-  leftContainer.classList.add("task-left-container");
+//   //create left container div
+//   const leftContainer = document.createElement("div");
+//   leftContainer.classList.add("task-left-container");
 
-  //create h1 element for task-name
-  const taskName = document.createElement("h1");
-  taskName.innerText = task["task-input"];
-  taskName.classList.add("task-name");
-  //create p element for task description
-  const taskDescription = document.createElement("p");
-  taskDescription.innerText = task["description-input"];
-  taskName.classList.add("task-description");
-  //create right container div
-  const rightContainer = document.createElement("div");
-  rightContainer.classList.add("task-right-container");
+//   //create h1 element for task-name
+//   const taskName = document.createElement("h1");
+//   taskName.innerText = task["task-input"];
+//   taskName.classList.add("task-name");
+//   //create p element for task description
+//   const taskDescription = document.createElement("p");
+//   taskDescription.innerText = task["description-input"];
+//   taskName.classList.add("task-description");
+//   //create right container div
+//   const rightContainer = document.createElement("div");
+//   rightContainer.classList.add("task-right-container");
 
-  const taskHours = document.createElement("p");
-  if (task["log-hours"] > 1) {
-    taskHours.innerText = `${task["log-hours"]} hours`;
-  } else {
-    taskHours.innerText = `${task["log-hours"]} hour`;
-  }
-  taskHours.classList.add("task-hours");
+//   const taskHours = document.createElement("p");
+//   if (task["log-hours"] > 1) {
+//     taskHours.innerText = `${task["log-hours"]}`;
+//   } else {
+//     taskHours.innerText = `${task["log-hours"]}`;
+//   }
+//   taskHours.classList.add("task-hours");
 
-  const taskDate = document.createElement("p");
-  taskDate.innerText = task["date"];
-  taskDate.classList.add("task-date");
+//   const taskDate = document.createElement("p");
+//   taskDate.innerText = task["date"];
+//   taskDate.classList.add("task-date");
 
-  taskDiv.appendChild(leftContainer);
-  leftContainer.appendChild(taskName);
-  leftContainer.appendChild(taskDescription);
-  taskDiv.appendChild(rightContainer);
-  rightContainer.appendChild(taskHours);
-  rightContainer.appendChild(taskDate);
-  // taskList.appendChild(taskDiv);
-  taskList.insertBefore(taskDiv, taskList.firstChild);
-}
+//   const deleteBtn = document.createElement("button");
+//   deleteBtn.innerHTML = '<i class="fas fa-minus-circle"></i>';
+//   deleteBtn.classList.add("delete-button");
+//   deleteBtn.addEventListener("click", deleteTask);
+
+//   taskDiv.appendChild(leftContainer);
+//   leftContainer.appendChild(taskName);
+//   leftContainer.appendChild(taskDescription);
+//   taskDiv.appendChild(rightContainer);
+//   rightContainer.appendChild(taskHours);
+//   rightContainer.appendChild(taskDate);
+//   rightContainer.appendChild(deleteBtn);
+//   // taskList.appendChild(taskDiv);
+//   taskDiv.id = i + 1;
+//   taskList.insertBefore(taskDiv, taskList.firstChild);
+// }
 
 document
   .querySelector(".goal-input")
@@ -213,5 +259,62 @@ function formShow() {
     formContainer.style.display = "flex";
   } else {
     formContainer.style.display = "none";
+  }
+}
+
+function deleteTask(e) {
+  const target = e.currentTarget;
+  const task = target.parentElement.parentElement;
+  let newTasks = JSON.parse(localStorage.getItem("tasks")).reverse();
+  let idx = parseInt(task.id) - 1;
+  task.remove();
+  let subtract = parseInt(newTasks[idx]["log-hours"]);
+  let sumHours = parseInt(localStorage.getItem("sum"));
+  let newHours = sumHours - subtract;
+  localStorage.setItem("sum", newHours);
+  newTasks.splice(idx, 1);
+  newTasks.reverse();
+  localStorage.setItem("tasks", JSON.stringify(newTasks));
+  // location.reload();
+  increaseBar();
+  updateCompetency();
+}
+
+increaseBar();
+updateCompetency();
+
+//shortcuts
+window.addEventListener("keydown", formShortcut, false);
+window.addEventListener("keydown", downShortcut, false);
+window.addEventListener("keydown", upShortcut, false);
+
+function formShortcut(e) {
+  if (
+    e.key === "n" &&
+    (!taskInput.activeElement || !descriptionInput.activeElement)
+  ) {
+    formShow();
+  }
+}
+
+function downShortcut(e) {
+  if (e.key === "d") {
+    window.scroll({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  }
+}
+
+function upShortcut(e) {
+  if (
+    e.key === "u" &&
+    (formContainer.style.display === "none" ||
+      formContainer.style.display === "")
+  ) {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 }

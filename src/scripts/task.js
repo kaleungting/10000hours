@@ -73,3 +73,14 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+
+window.addEventListener("scroll", flipSelect);
+
+function flipSelect() {
+  const select = document.querySelector(".select-items");
+  if (window.scrollY > 550) {
+    select.classList.add("flip");
+  } else {
+    select.classList.remove("flip");
+  }
+}

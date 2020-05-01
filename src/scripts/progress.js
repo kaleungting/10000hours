@@ -35,14 +35,14 @@ function updateCompetency() {
   let hoursRemaining = 10000 - sumHours;
   if (hoursRemaining > 8000) {
     competencyLevel = "Novice";
-    bar.style.backgroundColor = "rgb(184, 184, 184)";
-  } else if (hoursRemaining > 6000 && hoursRemaining < 8000) {
+    bar.style.backgroundColor = "#ffffff";
+  } else if (hoursRemaining > 6000 && hoursRemaining <= 8000) {
     competencyLevel = "Advanced Beginner";
     bar.style.backgroundColor = "#fde400";
-  } else if (hoursRemaining > 4000 && hoursRemaining < 6000) {
+  } else if (hoursRemaining > 4000 && hoursRemaining <= 6000) {
     competencyLevel = "Intermediate";
     bar.style.backgroundColor = "#fdad00";
-  } else if (hoursRemaining > 2000 && hoursRemaining < 4000) {
+  } else if (hoursRemaining > 2000 && hoursRemaining <= 4000) {
     competencyLevel = "Expert";
     bar.style.backgroundColor = "#009400";
   } else if (hoursRemaining > 0 && hoursRemaining < 2000) {
@@ -57,3 +57,5 @@ function updateCompetency() {
 
 updateCompetency();
 increaseBar();
+
+export { updateCompetency, increaseBar };

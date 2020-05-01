@@ -1,11 +1,12 @@
 .form-container {
   display: none;
-  position: fixed;
+  position: sticky;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   width: 80%;
-  bottom: 50px;
+  bottom: 10px;
+  top: 10px;
 }
 
 .task-form {
@@ -66,10 +67,12 @@
 .custom-select {
   position: relative;
   font-family: Arial;
+  width: 250px;
 }
 
 .custom-select select {
   display: none; /*hide original SELECT element:*/
+  width: 250px;
 }
 
 .log-hours {
@@ -88,6 +91,7 @@
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
   user-select: none;
+  background-color: black;
 }
 
 /*style items (options):*/
@@ -98,6 +102,17 @@
   left: 0;
   right: 0;
   z-index: 99;
+  text-align: center;
+}
+
+.select-items.flip {
+  position: absolute;
+  background-color: black;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  text-align: center;
 }
 
 /*hide the items when the select box is closed:*/
@@ -107,7 +122,12 @@
 
 .select-items div:hover,
 .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(131, 131, 131, 0.1);
+}
+
+.select-items.flip div:hover,
+.same-as-selected {
+  background-color: rgb(20, 20, 20);
 }
 .custom-select:focus-within {
   opacity: 70%;
@@ -127,3 +147,4 @@
 .hide-form:focus {
   outline: none;
 }
+
