@@ -32,6 +32,7 @@ function increaseBar() {
 
 function updateCompetency() {
   let competencyLevel;
+  const skillLevel = document.querySelector(".skill-level");
   let hoursRemaining = 10000 - sumHours;
   if (hoursRemaining > 8000) {
     competencyLevel = "Novice";

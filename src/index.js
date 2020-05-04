@@ -156,6 +156,8 @@ function addTask(event) {
     taskList.insertBefore(taskDiv, taskList.firstChild);
 
     //pushes task into localStorage
+    // debugger;
+    savedTasks = JSON.parse(localStorage.getItem("tasks"));
     savedTasks.push(convertTasks(inputArray));
     localStorage.setItem("tasks", JSON.stringify(savedTasks));
     taskDiv.id = savedTasks.length;
@@ -262,20 +264,51 @@ function formShow() {
   }
 }
 
+// function decreaseBar() {
+//   debugger;
+//   if (lvl === 0) {
+//     lvl = 1;
+//     let height = 1;
+//     let id = setInterval(frame, 8);
+//     function frame() {
+//       const sumHours = parseInt(localStorage.getItem("sum"));
+//       let sum = sumHours;
+//       if (height >= sum) {
+//         clearInterval(id);
+//         lvl = 0;
+//       } else {
+//         height--;
+//         bar.style.height = height + "%";
+//       }
+//     }
+//   }
+// }
+
 function deleteTask(e) {
   const target = e.currentTarget;
-  const task = target.parentElement.parentElement;
+  const task = target.parentElement;
+
   let newTasks = JSON.parse(localStorage.getItem("tasks")).reverse();
-  let idx = parseInt(task.id) - 1;
+
+  // let idx = parseInt(task.id) - 1;
+  let idx = Array.from(task.parentNode.children).indexOf(task);
+
   task.remove();
-  let subtract = parseInt(newTasks[idx]["log-hours"]);
+  let subtract = parseInt(
+    JSON.parse(localStorage.getItem("tasks"))[newTasks.length - idx - 1][
+      "log-hours"
+    ]
+  );
   let sumHours = parseInt(localStorage.getItem("sum"));
   let newHours = sumHours - subtract;
+  totalHours.innerText = 10000 - newHours;
+
   localStorage.setItem("sum", newHours);
   newTasks.splice(idx, 1);
   newTasks.reverse();
+  console.log(newTasks);
   localStorage.setItem("tasks", JSON.stringify(newTasks));
-  // location.reload();
+  //   location.reload();
   increaseBar();
   updateCompetency();
 }
@@ -284,21 +317,35 @@ increaseBar();
 updateCompetency();
 
 //shortcuts
-window.addEventListener("keydown", formShortcut, false);
-window.addEventListener("keydown", downShortcut, false);
-window.addEventListener("keydown", upShortcut, false);
+document.addEventListener("keydown", formShortcut, false);
+document.addEventListener("keydown", downShortcut, false);
+document.addEventListener("keydown", upShortcut, false);
 
 function formShortcut(e) {
-  if (
-    e.key === "n" &&
-    (!taskInput.activeElement || !descriptionInput.activeElement)
+  const taskInput = document.querySelector(".task-input");
+  const taskFocus = document.activeElement === taskInput;
+  const descriptionInput = document.querySelector(".description-input");
+  const descriptionFocus = document.activeElement === descriptionInput;
+  // debugger;
+  if (e.key === "n" && !taskFocus && !descriptionFocus) {
+    formShow();
+    e.preventDefault();
+    taskInput.focus();
+  } else if (
+    e.key === "Escape" &&
+    formContainer.style.display !== "none" &&
+    formContainer.style.display !== ""
   ) {
     formShow();
   }
 }
 
 function downShortcut(e) {
-  if (e.key === "d") {
+  if (
+    e.key === "d" &&
+    (formContainer.style.display === "none" ||
+      formContainer.style.display === "")
+  ) {
     window.scroll({
       top: document.body.scrollHeight,
       behavior: "smooth",
@@ -318,3 +365,10 @@ function upShortcut(e) {
     });
   }
 }
+
+// formContainer.onkeydown = function (e) {
+//   if (e.key === "n" || e.key === "d" || e.key === "u") {
+//   } else {
+//     e.preventDefault();
+//   }
+// };
