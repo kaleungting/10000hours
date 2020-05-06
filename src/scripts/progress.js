@@ -24,6 +24,7 @@ function increaseBar() {
         lvl = 0;
       } else {
         height++;
+        updateCompetency();
         bar.style.height = height + "%";
       }
     }

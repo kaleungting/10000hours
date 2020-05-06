@@ -121,6 +121,7 @@ function addTask(event) {
     rightContainer.appendChild(taskDate);
     taskDiv.appendChild(deleteBtn);
     // taskList.appendChild(taskDiv);
+    let sumHours = parseInt(localStorage.getItem("sum"));
     sumHours += parseInt(hourInput.value);
     localStorage.setItem("sum", parseInt(sumHours));
     totalHours.innerText = 10000 - sumHours;
@@ -133,7 +134,7 @@ function addTask(event) {
     localStorage.setItem("tasks", JSON.stringify(savedTasks));
     taskDiv.id = savedTasks.length;
     increaseBar();
-    updateCompetency();
+    // updateCompetency();
     formContainer.style.display = "none";
     // window.scrollTo(0, taskList.offsetTop);
 
@@ -144,56 +145,6 @@ function addTask(event) {
     });
   }
 }
-
-// function makeTask(task, i) {
-//   //create container div
-//   const taskDiv = document.createElement("div");
-//   taskDiv.classList.add("task-content");
-
-//   //create left container div
-//   const leftContainer = document.createElement("div");
-//   leftContainer.classList.add("task-left-container");
-
-//   //create h1 element for task-name
-//   const taskName = document.createElement("h1");
-//   taskName.innerText = task["task-input"];
-//   taskName.classList.add("task-name");
-//   //create p element for task description
-//   const taskDescription = document.createElement("p");
-//   taskDescription.innerText = task["description-input"];
-//   taskName.classList.add("task-description");
-//   //create right container div
-//   const rightContainer = document.createElement("div");
-//   rightContainer.classList.add("task-right-container");
-
-//   const taskHours = document.createElement("p");
-//   if (task["log-hours"] > 1) {
-//     taskHours.innerText = `${task["log-hours"]}`;
-//   } else {
-//     taskHours.innerText = `${task["log-hours"]}`;
-//   }
-//   taskHours.classList.add("task-hours");
-
-//   const taskDate = document.createElement("p");
-//   taskDate.innerText = task["date"];
-//   taskDate.classList.add("task-date");
-
-//   const deleteBtn = document.createElement("button");
-//   deleteBtn.innerHTML = '<i class="fas fa-minus-circle"></i>';
-//   deleteBtn.classList.add("delete-button");
-//   deleteBtn.addEventListener("click", deleteTask);
-
-//   taskDiv.appendChild(leftContainer);
-//   leftContainer.appendChild(taskName);
-//   leftContainer.appendChild(taskDescription);
-//   taskDiv.appendChild(rightContainer);
-//   rightContainer.appendChild(taskHours);
-//   rightContainer.appendChild(taskDate);
-//   rightContainer.appendChild(deleteBtn);
-//   // taskList.appendChild(taskDiv);
-//   taskDiv.id = i + 1;
-//   taskList.insertBefore(taskDiv, taskList.firstChild);
-// }
 
 document
   .querySelector(".goal-input")
@@ -229,36 +180,18 @@ function formShow() {
   }
 }
 
-// function decreaseBar() {
-//   debugger;
-//   if (lvl === 0) {
-//     lvl = 1;
-//     let height = 1;
-//     let id = setInterval(frame, 8);
-//     function frame() {
-//       const sumHours = parseInt(localStorage.getItem("sum"));
-//       let sum = sumHours;
-//       if (height >= sum) {
-//         clearInterval(id);
-//         lvl = 0;
-//       } else {
-//         height--;
-//         bar.style.height = height + "%";
-//       }
-//     }
-//   }
-// }
-
 function deleteTask(e) {
   const target = e.currentTarget;
   const task = target.parentElement;
 
   let newTasks = JSON.parse(localStorage.getItem("tasks")).reverse();
-
   // let idx = parseInt(task.id) - 1;
   let idx = Array.from(task.parentNode.children).indexOf(task);
 
-  task.remove();
+  task.style.backgroundColor = "#ea7317";
+  setTimeout(function () {
+    task.remove();
+  }, 2000);
   let subtract = parseInt(
     JSON.parse(localStorage.getItem("tasks"))[newTasks.length - idx - 1][
       "log-hours"
@@ -267,7 +200,6 @@ function deleteTask(e) {
   let sumHours = parseInt(localStorage.getItem("sum"));
   let newHours = sumHours - subtract;
   totalHours.innerText = 10000 - newHours;
-
   localStorage.setItem("sum", newHours);
   newTasks.splice(idx, 1);
   newTasks.reverse();

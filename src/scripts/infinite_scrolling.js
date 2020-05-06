@@ -9,6 +9,25 @@ window.addEventListener("scroll", () => {
   handleScroll();
 });
 
+// let resizer = new ResizeObserver(scrollDown);
+// resizer.observe(document.querySelector(".task-list"));
+
+// let mainContainer = document.querySelector(".main-container");
+// // mainContainer.addEventListener("resize", () => {
+// //   debugger;
+// //   window.scroll({
+// //     top: document.body.scrollHeight,
+// //     behavior: "smooth",
+// //   });
+// // });
+// function scrollDown() {
+//   console.log("resize called");
+//   window.scroll({
+//     top: document.body.scrollHeight - 300,
+//     behavior: "smooth",
+//   });
+// }
+
 function handleScroll() {
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
   if (
@@ -23,10 +42,6 @@ function handleScroll() {
         getTask();
         loading.classList.remove("show");
       }, 1000);
-      window.scroll({
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
     } else {
       loading.classList.add("show");
       setTimeout(() => {
@@ -102,7 +117,7 @@ function getTask() {
 }
 
 if (savedTasks.length > 0) {
-  for (let i = 0; i <= savedTasks.length; i++) {
+  for (let i = 0; i < 3; i++) {
     getTask();
   }
 }
@@ -144,7 +159,10 @@ function deleteTask(e) {
   let newTasks = JSON.parse(localStorage.getItem("tasks")).reverse();
   // let idx = parseInt(task.id) - 1;
   let idx = Array.from(task.parentNode.children).indexOf(task);
-  task.remove();
+  task.style.backgroundColor = "#ea7317";
+  setTimeout(function () {
+    task.remove();
+  }, 1000);
   let subtract = parseInt(
     JSON.parse(localStorage.getItem("tasks"))[newTasks.length - idx - 1][
       "log-hours"
