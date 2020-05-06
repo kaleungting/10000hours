@@ -40,35 +40,6 @@ if (sumHours > 10000) {
   localStorage.clear();
 }
 
-// let initial = 0;
-// let reveal = 3;
-// if (savedTasks.length > 10) {
-//   savedTasks = savedTasks.slice(savedTasks.length - 5);
-// }
-// savedTasks.forEach((task, i) => {
-//   makeTask(task, i);
-// });
-
-// }
-
-// loadSelected(savedTasks, reveal, initial);
-
-// window.addEventListener("scroll", function () {
-//   if (
-//     Math.ceil(window.innerHeight + window.scrollY) ===
-//       document.documentElement.scrollHeight &&
-//     savedTasks.length - reveal >= 0
-//   ) {
-//     initial += 3;
-//     reveal += 3;
-//     setTimeout(loadSelected(savedTasks, reveal, initial), 5000);
-//   } else if (savedTasks.length - reveal - 3 === 0) {
-//     initial += 3 - (savedTasks.length - reveal);
-//     reveal += savedTasks.length - reveal;
-//     loadSelected(savedTasks, reveal, initial);
-//   }
-// });
-
 increaseBar();
 updateCompetency();
 //checks to see if any inputs are empty, and if so, adds class show and renders
@@ -171,12 +142,6 @@ function addTask(event) {
       left: 0,
       behavior: "smooth",
     });
-    // location.reload();
-    //clears form
-    // taskInput.value = "";
-    // descriptionInput.value = "";
-    // hourInput.value = "";
-    // dateInput.value = "";
   }
 }
 
