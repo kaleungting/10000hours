@@ -19,7 +19,7 @@ const formContainer = document.querySelector(".form-container");
 hideForm.addEventListener("click", formShow);
 submitBtn.addEventListener("click", addTask);
 // localStorage.clear();
-
+//
 //localStorage
 let sumHours = localStorage.getItem("sum") ? localStorage.getItem("sum") : 0;
 sumHours = parseInt(sumHours);
