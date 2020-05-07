@@ -262,10 +262,3 @@ function upShortcut(e) {
     });
   }
 }
-
-// formContainer.onkeydown = function (e) {
-//   if (e.key === "n" || e.key === "d" || e.key === "u") {
-//   } else {
-//     e.preventDefault();
-//   }
-// };
