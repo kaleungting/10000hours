@@ -23,7 +23,9 @@ submitBtn.addEventListener("click", addTask);
 //localStorage
 let sumHours = localStorage.getItem("sum") ? localStorage.getItem("sum") : 0;
 sumHours = parseInt(sumHours);
-let savedTasks = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
+let savedTasks = localStorage.getItem("tasks")
+  ? JSON.parse(localStorage.getItem("tasks"))
+  : [];
 
 let mainGoal = localStorage.getItem("goal") ? localStorage.getItem("goal") : "";
 if (mainGoal) {
