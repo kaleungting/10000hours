@@ -47,7 +47,7 @@ function updateCompetency() {
   } else if (hoursRemaining > 2000 && hoursRemaining <= 4000) {
     competencyLevel = "Expert";
     bar.style.backgroundColor = "#009400";
-  } else if (hoursRemaining > 0 && hoursRemaining < 2000) {
+  } else if (hoursRemaining > 0 && hoursRemaining <= 2000) {
     competencyLevel = "Pro";
     bar.style.backgroundColor = "#003ada";
   } else {
