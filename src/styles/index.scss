@@ -83,8 +83,8 @@ input:active {
 
 .progress-bar {
   position: fixed;
-  margin: 100px 50px;
-  height: 800px;
+  margin: 70px 50px;
+  height: 825px;
   width: 30px;
   background-color: rgb(161, 161, 161);
   border-radius: 20px;
@@ -104,7 +104,7 @@ input:active {
 .total-hours {
   position: relative;
   font-size: 24px;
-  bottom: 50px;
+  bottom: 40px;
   right: 20px;
   font-family: "Spartan", sans-serif;
 }
@@ -114,4 +114,44 @@ input:active {
   position: fixed;
   right: 20px;
   top: 20px;
+}
+
+.quote-container {
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  padding-top: 20px;
+  transform: translate(-50%);
+}
+
+.quote {
+  font-family: "Source Sans Pro", sans-serif;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-size: 14px;
+}
+
+.hide {
+  display: none;
+}
+
+.help {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.help-container {
+  position: fixed;
+  left: 100px;
+  bottom: 50px;
+  font-size: 14px;
 }

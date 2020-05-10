@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <link href="dist/main.css" rel="stylesheet" />
     <link href="dist/normalize.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Spartan:wght@700&display=swap"
+      rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="10000 Hours" />
@@ -39,6 +37,20 @@
         </div>
       </div>
       <div class="error-container"></div>
+      <div class="help">
+        <div class="help-container hide">
+          <div class="help-content">
+            <h2>Hotkeys Control</h2>
+            <br />
+            <p>Press "N" to log at new task.</p>
+            <br />
+            <p>Press "U" to scroll to the top of the page.</p>
+            <br />
+            <p>Press "D" to scroll to the bottom of the page.</p>
+          </div>
+        </div>
+        <i class="far fa-question-circle"></i>
+      </div>
       <button class="hide-form"">
         <i class="far fa-plus-square"></i>
       </button>
@@ -82,6 +94,7 @@
     <script src="dist/main.js"></script>
     <script type="module" src="src/scripts/infinite_scrolling.js"></script>
     <script type="module" src="src/scripts/progress.js"></script>
+    <script type="module" src="src/scripts/quotes.js"></script>
     <script type="module" src="src/scripts/task.js"></script>
   </body>
 </html>

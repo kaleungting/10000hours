@@ -18,6 +18,7 @@ const formContainer = document.querySelector(".form-container");
 
 hideForm.addEventListener("click", formShow);
 submitBtn.addEventListener("click", addTask);
+
 // localStorage.clear();
 //
 //localStorage
@@ -189,7 +190,7 @@ export function deleteTask(e) {
   task.style.backgroundColor = "#ea7317";
   setTimeout(function () {
     task.remove();
-  }, 1000);
+  }, 500);
   let subtract = parseInt(
     JSON.parse(localStorage.getItem("tasks"))[newTasks.length - idx - 1][
       "log-hours"
@@ -258,4 +259,27 @@ function upShortcut(e) {
       behavior: "smooth",
     });
   }
+}
+
+window.onload = function () {
+  const quote = document.querySelector(".quote");
+
+  const author = document.querySelector(".author");
+  if (author) {
+    quote.addEventListener("mouseenter", () => {
+      show(author);
+    });
+    quote.addEventListener("mouseleave", () => {
+      show(author);
+    });
+  }
+  const help = document.querySelector(".help");
+  const helpContainer = document.querySelector(".help-container");
+  help.addEventListener("mouseover", () => {
+    show(helpContainer);
+  });
+};
+
+function show(elem) {
+  elem.classList.toggle("hide");
 }

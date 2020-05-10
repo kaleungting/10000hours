@@ -143,7 +143,7 @@ function deleteTask(e) {
   task.style.backgroundColor = "#ea7317";
   setTimeout(function () {
     task.remove();
-  }, 1000);
+  }, 500);
   let subtract = parseInt(
     JSON.parse(localStorage.getItem("tasks"))[newTasks.length - idx - 1][
       "log-hours"
@@ -162,7 +162,6 @@ function deleteTask(e) {
   updateCompetency();
 }
 
-window.addEventListener("DOMContentLoaded", () => {});
 const sumHours = parseInt(localStorage.getItem("sum"));
 const bar = document.querySelector(".amount-completed");
 
