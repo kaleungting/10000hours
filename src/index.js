@@ -15,6 +15,8 @@ const goalInput = document.querySelector(".goal-input");
 const goalContainer = document.querySelector(".goal-container");
 const hideForm = document.querySelector(".hide-form");
 const formContainer = document.querySelector(".form-container");
+const toHundred = document.querySelector(".to-hundred");
+const progressBar = document.querySelector(".progress-bar");
 
 hideForm.addEventListener("click", formShow);
 submitBtn.addEventListener("click", addTask);
@@ -52,6 +54,7 @@ function error(array) {
     }
   });
 }
+toHundred.innerText = `${sumHours % 100}/100`;
 
 //iterates through each input and sets it as an key:value pair
 function convertTasks(array) {
@@ -127,7 +130,7 @@ function addTask(event) {
     localStorage.setItem("sum", parseInt(sumHours));
     totalHours.innerText = 10000 - sumHours;
     taskList.insertBefore(taskDiv, taskList.firstChild);
-
+    toHundred.innerText = `${sumHours % 100}/100`;
     //pushes task into localStorage
     // debugger;
     savedTasks = JSON.parse(localStorage.getItem("tasks"));
@@ -199,6 +202,7 @@ export function deleteTask(e) {
   let sumHours = parseInt(localStorage.getItem("sum"));
   let newHours = sumHours - subtract;
   totalHours.innerText = 10000 - newHours;
+  toHundred.innerText = `${newHours % 100}/100`;
   localStorage.setItem("sum", newHours);
   newTasks.splice(idx, 1);
   newTasks.reverse();
@@ -262,21 +266,34 @@ function upShortcut(e) {
 }
 
 window.onload = function () {
-  const quote = document.querySelector(".quote");
+  const quoteContainer = document.querySelector(".quote-container");
 
   const author = document.querySelector(".author");
   if (author) {
-    quote.addEventListener("mouseenter", () => {
-      show(author);
-    });
-    quote.addEventListener("mouseleave", () => {
+    quoteContainer.addEventListener("mouseover", () => {
       show(author);
     });
   }
   const help = document.querySelector(".help");
   const helpContainer = document.querySelector(".help-container");
-  help.addEventListener("mouseover", () => {
+  help.addEventListener("click", () => {
     show(helpContainer);
+  });
+
+  const skillLevel = document.querySelector(".skill-level");
+  const skillInfo = document.querySelector(".skill-info");
+  skillLevel.addEventListener("mouseenter", () => {
+    show(skillInfo);
+  });
+  skillLevel.addEventListener("mouseleave", () => {
+    show(skillInfo);
+  });
+
+  progressBar.addEventListener("mouseenter", () => {
+    show(toHundred);
+  });
+  progressBar.addEventListener("mouseleave", () => {
+    show(toHundred);
   });
 };
 

@@ -84,7 +84,7 @@ input:active {
 .progress-bar {
   position: fixed;
   margin: 70px 50px;
-  height: 825px;
+  height: 80%;
   width: 30px;
   background-color: rgb(161, 161, 161);
   border-radius: 20px;
@@ -109,6 +109,12 @@ input:active {
   font-family: "Spartan", sans-serif;
 }
 
+.to-hundred {
+  position: absolute;
+  bottom: -35px;
+  left: -10px;
+}
+
 .skill-level {
   font-size: 24px;
   position: fixed;
@@ -122,16 +128,12 @@ input:active {
   text-align: center;
   padding-top: 20px;
   transform: translate(-50%);
-}
-
-.quote {
   font-family: "Source Sans Pro", sans-serif;
-  z-index: 100;
-  margin-bottom: 5px;
 }
 
 .author {
   font-size: 14px;
+  margin-top: 5px;
 }
 
 .hide {
@@ -141,17 +143,45 @@ input:active {
 .help {
   position: fixed;
   left: 50px;
-  bottom: 50px;
+  bottom: 30px;
   border: none;
   background-color: transparent;
   font-size: 30px;
   color: white;
   cursor: pointer;
+  z-index: 10;
 }
 
 .help-container {
   position: fixed;
-  left: 100px;
-  bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 300px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  left: 110px;
+  bottom: 30px;
   font-size: 14px;
+}
+
+.help-container p,
+.help-container h3 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.help-container h3 {
+  font-weight: 1000;
+}
+
+.skill-info {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  right: 10px;
+  top: 60px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-weight: normal;
+}
+
+.skill-info p {
+  font-size: 12px;
 }

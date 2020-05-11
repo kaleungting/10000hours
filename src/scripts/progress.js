@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {});
 const sumHours = parseInt(localStorage.getItem("sum"));
-const skillLevel = document.querySelector(".skill-level");
 const bar = document.querySelector(".amount-completed");
 
 let lvl = 0;
@@ -56,6 +55,10 @@ function updateCompetency() {
   }
   skillLevel.innerText = competencyLevel;
 }
+
+
+
+
 
 updateCompetency();
 increaseBar();

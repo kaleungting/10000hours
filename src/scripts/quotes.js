@@ -10,18 +10,18 @@ function getQuote() {
       let quote = data[Math.floor(Math.random() * data.length)];
       const quoteContainer = document.createElement("div");
       quoteContainer.classList.add("quote-container");
-      const quoteText = document.createElement("p");
+      // const quoteText = document.createElement("p");
       const quoteAuthor = document.createElement("p");
-      quoteText.classList.add("quote");
+      // quoteText.classList.add("quote");
       quoteAuthor.classList.add("author");
       quoteAuthor.classList.add("hide");
-      quoteText.innerText = `"${quote.text}"`;
+      quoteContainer.innerText = `"${quote.text}"`;
       if (quote.author) {
         quoteAuthor.innerText = `${quote.author}`;
       } else {
         quoteAuthor.innerText = "Anonymous";
       }
-      quoteContainer.appendChild(quoteText);
+      // quoteContainer.appendChild(quoteText);
       quoteContainer.appendChild(quoteAuthor);
       mainContainer.insertBefore(quoteContainer, splashPage);
     });

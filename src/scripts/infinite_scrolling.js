@@ -136,7 +136,7 @@ function deleteTask(e) {
   const target = e.currentTarget;
   const task = target.parentElement;
   const totalHours = document.querySelector(".total-hours");
-
+  const toHundred = document.querySelector(".to-hundred");
   let newTasks = JSON.parse(localStorage.getItem("tasks")).reverse();
   // let idx = parseInt(task.id) - 1;
   let idx = Array.from(task.parentNode.children).indexOf(task);
@@ -152,6 +152,7 @@ function deleteTask(e) {
   let sumHours = parseInt(localStorage.getItem("sum"));
   let newHours = sumHours - subtract;
   totalHours.innerText = 10000 - newHours;
+  toHundred.innerText = `${newHours % 100}/100`;
   localStorage.setItem("sum", newHours);
   newTasks.splice(idx, 1);
   newTasks.reverse();
