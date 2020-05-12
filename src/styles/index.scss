@@ -185,3 +185,20 @@ input:active {
 .skill-info p {
   font-size: 12px;
 }
+
+.fa-github,
+.fa-linkedin-in,
+.fa-user {
+  margin: 0px 50px;
+  color: white;
+  opacity: 70%;
+}
+
+.fa-github:hover,
+.fa-linkedin-in:hover,
+.fa-user:hover {
+  transition: opacity 1s ease-out;
+  margin: 0px 50px;
+  color: white;
+  opacity: 100%;
+}

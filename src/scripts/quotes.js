@@ -15,7 +15,7 @@ function getQuote() {
       // quoteText.classList.add("quote");
       quoteAuthor.classList.add("author");
       quoteAuthor.classList.add("hide");
-      quoteContainer.innerText = `"${quote.text}"`;
+      quoteContainer.innerText = `${quote.text}`;
       if (quote.author) {
         quoteAuthor.innerText = `${quote.author}`;
       } else {

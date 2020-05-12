@@ -17,6 +17,7 @@ const hideForm = document.querySelector(".hide-form");
 const formContainer = document.querySelector(".form-container");
 const toHundred = document.querySelector(".to-hundred");
 const progressBar = document.querySelector(".progress-bar");
+const title = document.getElementById("title");
 
 hideForm.addEventListener("click", formShow);
 submitBtn.addEventListener("click", addTask);
@@ -267,13 +268,16 @@ function upShortcut(e) {
 
 window.onload = function () {
   const quoteContainer = document.querySelector(".quote-container");
-
   const author = document.querySelector(".author");
   if (author) {
-    quoteContainer.addEventListener("mouseover", () => {
-      show(author);
+    quoteContainer.addEventListener("mouseenter", () => {
+      author.classList.remove("hide");
+    });
+    quoteContainer.addEventListener("mouseleave", () => {
+      author.classList.add("hide");
     });
   }
+
   const help = document.querySelector(".help");
   const helpContainer = document.querySelector(".help-container");
   help.addEventListener("click", () => {
@@ -294,6 +298,20 @@ window.onload = function () {
   });
   progressBar.addEventListener("mouseleave", () => {
     show(toHundred);
+  });
+
+  title.addEventListener("mouseenter", () => {
+    title.innerHTML = `
+    <a href="https://github.com/kaleungting" target="blank">
+    <i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/ken-ting-752a1768/" target="blank">
+    <i class="fab fa-linkedin-in"></i></a>
+    <a href="https://kaleungting.github.io/" target="blank">
+    <i class="fas fa-user"></i></a>`;
+  });
+
+  title.addEventListener("mouseleave", () => {
+    title.innerText = "10000 Hours";
   });
 };
 
