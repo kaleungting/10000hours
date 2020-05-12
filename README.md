@@ -9,13 +9,14 @@ Let's put that theory to the test.
   * 10000 hours left - novice
    * 8000 hours left - advanced beginner
    * 6000 hours left - competent
-   * 4000 hours left - advanced
-   * 2000 hours left - expert
+   * 4000 hours left - expert
+   * 2000 hours left - pro
    * 0 hours left - master
+* User can interact app with keyboard hotkeys/shortcuts.
 * User can set daily/weekly reminders to stay on track.
 
 # Bonus Features
 * User can search for information/tutorials
 
 # Wireframe
-https://wireframe.cc/i2HeCb
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/wireframe.png)
