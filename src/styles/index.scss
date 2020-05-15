@@ -155,8 +155,8 @@ input:active {
 .help-container {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 300px;
-  padding: 10px 10px;
+  width: 350px;
+  padding: 25px 25px;
   border-radius: 5px;
   left: 110px;
   bottom: 30px;
@@ -177,7 +177,7 @@ input:active {
   color: white;
   right: 10px;
   top: 60px;
-  padding: 10px 10px;
+  padding: 25px 25px;
   border-radius: 5px;
   font-weight: normal;
 }
@@ -186,19 +186,27 @@ input:active {
   font-size: 12px;
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 120px;
+  right: 50px;
+}
+
 .fa-github,
 .fa-linkedin-in,
 .fa-user {
-  margin: 0px 50px;
   color: white;
   opacity: 70%;
+  font-size: 40px;
+  margin: 10px 0px;
 }
 
 .fa-github:hover,
 .fa-linkedin-in:hover,
 .fa-user:hover {
-  transition: opacity 1s ease-out;
-  margin: 0px 50px;
+  transition: opacity 0.7s ease-out;
   color: white;
   opacity: 100%;
 }
