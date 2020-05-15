@@ -299,20 +299,6 @@ window.onload = function () {
   progressBar.addEventListener("mouseleave", () => {
     show(toHundred);
   });
-
-  title.addEventListener("mouseenter", () => {
-    title.innerHTML = `
-    <a href="https://github.com/kaleungting" target="blank">
-    <i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/ken-ting-752a1768/" target="blank">
-    <i class="fab fa-linkedin-in"></i></a>
-    <a href="https://kaleungting.github.io/" target="blank">
-    <i class="fas fa-user"></i></a>`;
-  });
-
-  title.addEventListener("mouseleave", () => {
-    title.innerText = "10000 Hours";
-  });
 };
 
 function show(elem) {
