@@ -4,12 +4,10 @@ const splashPage = document.querySelector(".splash-page");
 function getQuote() {
   fetch("https://type.fit/api/quotes")
     .then(function (response) {
-      debugger;
       return response.json();
     })
     .then(function (data) {
       let quote = data[Math.floor(Math.random() * data.length)];
-      debugger;
       const quoteContainer = document.createElement("div");
       quoteContainer.innerText = `${quote.text}`;
       quoteContainer.classList.add("quote-container");
