@@ -4,18 +4,18 @@ const splashPage = document.querySelector(".splash-page");
 function getQuote() {
   fetch("https://type.fit/api/quotes")
     .then(function (response) {
+      debugger;
       return response.json();
     })
     .then(function (data) {
       let quote = data[Math.floor(Math.random() * data.length)];
+      debugger;
       const quoteContainer = document.createElement("div");
+      quoteContainer.innerText = `${quote.text}`;
       quoteContainer.classList.add("quote-container");
-      // const quoteText = document.createElement("p");
       const quoteAuthor = document.createElement("p");
-      // quoteText.classList.add("quote");
       quoteAuthor.classList.add("author");
       quoteAuthor.classList.add("hide");
-      quoteContainer.innerText = `${quote.text}`;
       if (quote.author) {
         quoteAuthor.innerText = `${quote.author}`;
       } else {
@@ -26,4 +26,5 @@ function getQuote() {
       mainContainer.insertBefore(quoteContainer, splashPage);
     });
 }
+
 getQuote();

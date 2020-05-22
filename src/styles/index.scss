@@ -40,7 +40,7 @@ body {
 }
 
 .goal-input {
-  width: 70%;
+  width: min-content;
   font-size: 60px;
   background-color: none;
   color: white;
@@ -120,6 +120,13 @@ input:active {
   position: fixed;
   right: 20px;
   top: 20px;
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.skill-level:hover {
+  transition: opacity 0.5s ease-out;
+  opacity: 100%;
 }
 
 .quote-container {
@@ -129,6 +136,7 @@ input:active {
   padding-top: 20px;
   transform: translate(-50%);
   font-family: "Source Sans Pro", sans-serif;
+  cursor: pointer;
 }
 
 .author {
@@ -150,6 +158,13 @@ input:active {
   color: white;
   cursor: pointer;
   z-index: 10;
+  opacity: 60%;
+}
+
+.help:hover {
+  transition: opacity 0.5s ease-out;
+
+  opacity: 100%;
 }
 
 .help-container {
@@ -198,7 +213,7 @@ input:active {
 .fa-linkedin-in,
 .fa-user {
   color: white;
-  opacity: 70%;
+  opacity: 60%;
   font-size: 40px;
   margin: 10px 0px;
 }
@@ -206,7 +221,7 @@ input:active {
 .fa-github:hover,
 .fa-linkedin-in:hover,
 .fa-user:hover {
-  transition: opacity 0.7s ease-out;
+  transition: opacity 0.5s ease-out;
   color: white;
   opacity: 100%;
 }

@@ -226,8 +226,9 @@ function formShortcut(e) {
   const taskFocus = document.activeElement === taskInput;
   const descriptionInput = document.querySelector(".description-input");
   const descriptionFocus = document.activeElement === descriptionInput;
+  const goalFocus = document.activeElement === goalInput;
   // debugger;
-  if (e.key === "n" && !taskFocus && !descriptionFocus) {
+  if (e.key === "n" && !taskFocus && !descriptionFocus && !goalFocus) {
     formShow();
     e.preventDefault();
     taskInput.focus();
@@ -277,6 +278,11 @@ window.onload = function () {
       author.classList.add("hide");
     });
   }
+  let text = author.innerText.split(" ").join("+");
+
+  quoteContainer.addEventListener("click", () => {
+    window.open(`http://www.google.com/search?q=${text}`);
+  });
 
   const help = document.querySelector(".help");
   const helpContainer = document.querySelector(".help-container");
