@@ -277,12 +277,11 @@ window.onload = function () {
     quoteContainer.addEventListener("mouseleave", () => {
       author.classList.add("hide");
     });
+    let text = author.innerText.split(" ").join("+");
+    quoteContainer.addEventListener("click", () => {
+      window.open(`http://www.google.com/search?q=${text}`);
+    });
   }
-  let text = author.innerText.split(" ").join("+");
-
-  quoteContainer.addEventListener("click", () => {
-    window.open(`http://www.google.com/search?q=${text}`);
-  });
 
   const help = document.querySelector(".help");
   const helpContainer = document.querySelector(".help-container");
