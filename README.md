@@ -22,6 +22,7 @@ Let's put that theory to the test.
 ![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.58.42+AM.png)
 
 * Eventlisteners are used throughout the webpage to make it easier for users to access. Keyboard shortcuts are added through this.
+
 ![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.54.23+AM.png)
 ![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+9.01.20+AM.png)
 
