@@ -2,21 +2,26 @@
 There's this theory that says you could become a master if you put 10,000 hours of blood, sweat and tears into one thing. 
 Let's put that theory to the test.
 
-# MVP
-* User can set a goal to achieve.
-* User can add tasks to their goal.
-* User can reach different statuses depending on how many hours they've put in.
-  * 10000 hours left - novice
-   * 8000 hours left - advanced beginner
-   * 6000 hours left - competent
-   * 4000 hours left - expert
-   * 2000 hours left - pro
-   * 0 hours left - master
+# Features
+* User can type and enter a goal they want to achieve.
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.49.01+AM.png)
+
+* By pressing "N" on their keyboard, or clicking on the "+" sign on the bottom right corner of the page, a user can log a task to their tracker.
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.49.46+AM.png)
+
+* The top right corner displays the user's status and skill level. 
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.49.13+AM.png)
+
 * User can interact app with keyboard hotkeys/shortcuts.
-* User can set daily/weekly reminders to stay on track.
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.54.23+AM.png)
 
-# Bonus Features
-* User can search for information/tutorials
+* User can see their progress through the progress bar.
 
-# Wireframe
-![Image of Wireframe](https://ken-github.s3.amazonaws.com/wireframe.png)
+# Code Snippets/Highlights
+* Implemented with lazy loading - tasks are only loaded three at a time. As soon as user scrolls to the bottom of the page, three more tasks will load. 
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.58.42+AM.png)
+
+* Eventlisteners are used throughout the webpage to make it easier for users to access. Keyboard shortcuts are added through this.
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+8.54.23+AM.png)
+![Image of Wireframe](https://ken-github.s3.amazonaws.com/Screen+Shot+2020-06-14+at+9.01.20+AM.png)
+
